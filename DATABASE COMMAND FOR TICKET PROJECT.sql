@@ -34,3 +34,5 @@ Create Table ResolvedTickets (TicketId INT NOT NULL FOREIGN KEY REFERENCES Ticke
                               DeveloperId NVARCHAR(450) NOT NULL FOREIGN KEY REFERENCES AspNetUsers(Id),
 							  PRIMARY KEY (DeveloperId,TicketId));
 
+DROP TABLE ResolvedTickets
+
