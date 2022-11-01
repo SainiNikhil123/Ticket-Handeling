@@ -100,6 +100,26 @@ namespace TicketHandelingProject.Repository
             var User = await _applicationUserManager.FindByNameAsync(UserName);
             if (User == null) return true; else return false;
         }
+
+        public ICollection<UserDto> GetUser()
+        {
+            var UserList = (from u in _context.Users
+                            join ur in _context.UserRoles
+                            on u.Id equals ur.UserId
+                            join r in _context.Roles
+                            on ur.RoleId equals r.Id
+                            select new UserDto()
+                            {
+                                Id = u.Id,
+                                UserName = u.UserName,
+                                PhoneNumber = u.PhoneNumber,
+                                Email = u.Email,
+                                RoleId = ur.RoleId,
+                                Role = r.Name
+                            }).ToList();
+
+            return (UserList);
+        }
     }
 }
 

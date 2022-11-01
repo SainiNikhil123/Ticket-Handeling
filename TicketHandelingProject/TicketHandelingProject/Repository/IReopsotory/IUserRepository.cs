@@ -9,6 +9,7 @@ namespace TicketHandelingProject.Repository.IReopsotory
 {
     public interface IUserRepository
     {
+        ICollection<UserDto> GetUser();
         Task<bool> IsUniqueUser(string UserName);
         Task<Token> Authenticate(Login login);
         Task<Boolean> Register(UserDto user);

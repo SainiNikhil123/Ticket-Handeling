@@ -67,7 +67,7 @@ namespace TicketHandelingProject.Controllers
             return BadRequest();
         }
 
-        [HttpPost]
+        [HttpPost("Authenticate")]
         public async Task<IActionResult> Authenticate(Login login)
         {
             if(login != null && ModelState.IsValid)
@@ -78,6 +78,12 @@ namespace TicketHandelingProject.Controllers
             }
             return BadRequest();
 
+        }
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            var user = _userRepository.GetUser();
+            return Ok(user);
         }
     }
 }

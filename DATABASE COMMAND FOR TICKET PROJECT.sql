@@ -36,3 +36,17 @@ Create Table ResolvedTickets (TicketId INT NOT NULL FOREIGN KEY REFERENCES Ticke
 
 DROP TABLE ResolvedTickets
 
+INSERT INTO StatusName (Name) VALUES('New')
+INSERT INTO StatusName (Name) VALUES('Active')
+INSERT INTO StatusName (Name) VALUES('Backlog')
+INSERT INTO StatusName (Name) VALUES('Completed')
+INSERT INTO StatusName (Name) VALUES('Assign Back To Admin')
+INSERT INTO StatusName (Name) VALUES('Monitoring')
+
+INSERT INTO Priority (Name) VALUES('High')
+INSERT INTO Priority (Name) VALUES('Medium')
+INSERT INTO Priority (Name) VALUES('Low')
+
+select * from  Priority
+
+select * from  StatusName
