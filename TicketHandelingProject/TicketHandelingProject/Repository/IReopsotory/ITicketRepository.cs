@@ -10,8 +10,11 @@ namespace TicketHandelingProject.Repository.IReopsotory
     public interface ITicketRepository : IRepository<Ticket>
     {
         IEnumerable<Ticket> AllTickets();
+        IEnumerable<CompletedTicketDto> AllCompletedTickets();
         Boolean NewTicket(TicketDto ticket);
         Boolean ApproveTicket(TicketUpdateDto ticketUpdate);
         IEnumerable<TicketsDto> ApprovedTickets();
+        IEnumerable<DevTicketDto> TicketByDevId(string DevId);
+        Boolean AddStatus(int ticketId, int statusId);
     }
 }

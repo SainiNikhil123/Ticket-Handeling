@@ -27,10 +27,24 @@ namespace TicketHandelingProject.Controllers
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
+        [HttpGet("Completed")]
+        public IActionResult GetCompletedTickets() // In This Method Completed Tickts Will Display For Admin Role
+        {
+            var tickets = _unitOfWork.Ticket.AllCompletedTickets();
+            if (tickets == null) return BadRequest();
+            return Ok(tickets);
+        }
         [HttpGet("Approved")]
         public IActionResult GetApprovedTickets() // In This Method Approved Tickts Will Display For Admin And Dev Support Role
         {
             var tickets = _unitOfWork.Ticket.ApprovedTickets();
+            if (tickets == null) return BadRequest();
+            return Ok(tickets);
+        }
+        [HttpGet("DevTickets")]
+        public IActionResult GetTicketsByDevId(string DevId) // In This Method Approved Tickts Will Display For Dev Role
+        {
+            var tickets = _unitOfWork.Ticket.TicketByDevId(DevId);
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
@@ -81,6 +95,18 @@ namespace TicketHandelingProject.Controllers
             var ticketupdated = _unitOfWork.Ticket.ApproveTicket(ticketUpdate);
             if (ticketupdated == false) return BadRequest();
             return Ok();
+        }
+        [HttpPost("UpdateStatus")]
+        public IActionResult UpdateTicketStatus(StatusUpdDto status)
+        {
+            if(status != null && ModelState.IsValid)
+            {
+                var statusUpdated = _unitOfWork.Ticket.AddStatus(status.TicketId, status.StatusId);
+                if (statusUpdated == false) return BadRequest();
+                return Ok();
+            }
+            return BadRequest();
+             
         }
     }
 }
