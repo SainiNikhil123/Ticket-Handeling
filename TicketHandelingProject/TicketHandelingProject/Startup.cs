@@ -50,13 +50,13 @@ namespace TicketHandelingProject
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddTransient<IRoleStore<IdentityRole>, ApplicationRoleStore>();
+            services.AddTransient<IRoleStore<ApplicationRole>, ApplicationRoleStore>();
             services.AddTransient<UserManager<ApplicationUser>, ApplicationUserManager>();
             services.AddTransient<SignInManager<ApplicationUser>, ApplicationSignInManager>();
-            services.AddTransient<RoleManager<IdentityRole>, ApplicationRoleManager>();
+            services.AddTransient<RoleManager<ApplicationRole>, ApplicationRoleManager>();
             services.AddTransient<IUserStore<ApplicationUser>, ApplicationUserStore>();
            
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddUserStore<ApplicationUserStore>()
             .AddUserManager<ApplicationUserManager>()

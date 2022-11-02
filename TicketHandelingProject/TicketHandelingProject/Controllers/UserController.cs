@@ -16,8 +16,8 @@ namespace TicketHandelingProject.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        public UserController(IUserRepository userRepository, RoleManager<IdentityRole> roleManager)
+        private readonly ApplicationRoleManager _roleManager;
+        public UserController(IUserRepository userRepository, ApplicationRoleManager roleManager)
         { 
             _userRepository = userRepository;
             _roleManager = roleManager;
