@@ -1,0 +1,63 @@
+<div class="p-1 m-1">
+       <h2 class="text-primary text-center p-4 m-4"><b>ADMIN DASHBOARD</b></h2>
+</div>
+<div class="row p-1 m-1">
+<div class="col">
+    <div>
+        <table class="table table-bordered table-active container">
+            <thead class="text-danger">
+                <tr class="text-center">
+                    
+                    <th>ID</th>
+                    <th>TICKET</th>
+                    <th>DEVELOPERS</th>
+                    <th>STATUS</th>
+                    <th>Priority</th>
+                    <th>APPROVED</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let user of ticketList">
+                    
+                    <td>{{user.id}}</td>
+                    <td>{{user.ticket1}}</td>  
+                    <td  >
+                        <select *ngIf="user.developer == null" class="form-control">
+                            <option value="">Select Developer</option>
+                            <option  value="{{Dev.id}}"   *ngFor="let Dev of devList">
+                              {{Dev.userName}}
+                            </option>
+                          </select>
+                          <div *ngIf="user.developer != null">{{user.developer}}</div>
+                    </td>
+                    <td>
+                        <select *ngIf="user.status == null" class="form-control">
+                            <option value="">Select Status</option>
+                            <option  value="{{s.id}}"   *ngFor="let s of statusList">
+                              {{s.name}}
+                            </option>
+                          </select>
+                          <div *ngIf="user.status != null">{{user.status}}</div>
+                    </td>
+                    <td >
+                        <select *ngIf="user.priority == null" class="form-control">
+                            <option value="">Select Priority</option>
+                            <option  value="{{p.id}}"   *ngFor="let p of priorityList">
+                              {{p.name}}
+                            </option>
+                          </select>
+                          <div *ngIf="user.priority != null">{{user.priority}}</div>
+                    </td>
+                    <td>
+                        <button *ngIf="user.approved == false" (click)="ApproveTicket()" class="btn btn-primary" >Approve</button>
+                        <div *ngIf="user.approved == true">✅</div>
+                    </td>
+                                       
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+

@@ -9,7 +9,7 @@ namespace TicketHandelingProject.Repository.IReopsotory
 {
     public interface ITicketRepository : IRepository<Ticket>
     {
-        IEnumerable<Ticket> AllTickets();
+        IEnumerable<TicketsDto> AllTickets();
         IEnumerable<CompletedTicketDto> AllCompletedTickets();
         Boolean NewTicket(TicketDto ticket);
         Boolean ApproveTicket(TicketUpdateDto ticketUpdate);

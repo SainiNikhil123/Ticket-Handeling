@@ -1,0 +1,32 @@
+<div class="row p-2 m-2">
+    <div class="col-8">
+       <h2 class="text-success text-center"><b>USER LIST</b></h2>
+    </div>
+    <div  class="col-2">
+        <button type="button" class="btn btn-primary" >New User</button>
+     </div>
+</div>
+<div>
+    <table class="table table-bordered table-primary table-active container">
+        <thead class="text-primary table-primary">
+            <tr class="text-center">
+                
+                <th>UserName</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Role</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let user of userList">
+                
+                <td>{{user.userName}}</td>
+                <td>{{user.phoneNumber}}</td> 
+                <td>{{user.email}}</td> 
+                <td>{{user.role}}</td>
+                                   
+            </tr>
+        </tbody>
+    </table>
+</div>

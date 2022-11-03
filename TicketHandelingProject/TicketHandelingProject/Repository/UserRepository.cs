@@ -118,6 +118,9 @@ namespace TicketHandelingProject.Repository
                                 Role = r.Name
                             }).ToList();
 
+            var adminUser = UserList.Where(x => x.Role == "Admin").FirstOrDefault();
+            UserList.Remove(adminUser);
+
             return (UserList);
         }
     }

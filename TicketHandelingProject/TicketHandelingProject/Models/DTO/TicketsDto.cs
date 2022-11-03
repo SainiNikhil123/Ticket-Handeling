@@ -9,9 +9,9 @@ namespace TicketHandelingProject.Models.DTO
     {
         public int Id { get; set; }
         public bool Approved { get; set; }
-        public int PriorityId { get; set; }
+        public int? PriorityId { get; set; }
         public string Priority { get; set; }
-        public int StatusId { get; set; }
+        public int? StatusId { get; set; }
         public string Status { get; set; }
         public string DeveloperId { get; set; }
         public string Developer { get; set; }
