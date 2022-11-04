@@ -10,4 +10,5 @@ export class Tickets {
     userId:string="";
     user:string="";
     ticket1:string="";
+    picturePath:string="";
 }

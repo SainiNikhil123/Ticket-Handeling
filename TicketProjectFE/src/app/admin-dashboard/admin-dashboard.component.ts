@@ -19,11 +19,12 @@ import { UpperCasePipe } from '@angular/common';
 export class AdminDashboardComponent implements OnInit {
 
   ticketList:Tickets[] = [];
+  ticket:Tickets = new Tickets();
+  newTicket:UpdateTicket = new UpdateTicket();
   userList:User[] = [];
   statusList:Status[] = [];
   priorityList:Priority[] = [];
   devList:User[] = [];
-  ticket:UpdateTicket=new UpdateTicket();
 
   constructor(private ticketService:TicketService, private userService:UserService, private statusService:StatusService, private priorityService:PriorityService) { }
 
@@ -89,6 +90,32 @@ export class AdminDashboardComponent implements OnInit {
     )
   }
 
-  ApproveTicket(){
+  devSelect(e:any){
+    this.newTicket.DeveloperId = e.target.value;
+  }
+
+  statusSelect(e:any){
+    this.newTicket.StatusId = e.target.value;
+  }
+
+  selectprio(e:any){
+    this.newTicket.PriorityId = e.target.value;
+  }
+
+  ApproveTicket(u:any){
+    this.ticket = u;
+    this.newTicket.Id = this.ticket.id;
+    this.ticketService.approveTicket(this.newTicket).subscribe(
+      (response)=>{
+        this.getAllTickets();
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  createImagePath(serverPath:string){
+    return `https://localhost:44393/${serverPath}`;
   }
 }

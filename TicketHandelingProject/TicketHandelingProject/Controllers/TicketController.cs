@@ -48,36 +48,41 @@ namespace TicketHandelingProject.Controllers
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
-        [HttpPost, DisableRequestSizeLimit]
+
+        [HttpPost("Upload"), DisableRequestSizeLimit]
+        public IActionResult Upload()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];
+                var folderName = Path.Combine("Resource", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (file.Length > 0)
+                {
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    return Ok(new { dbPath });
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex}");
+            }
+        }
+        [HttpPost]
         public IActionResult AddTicket([FromBody]TicketDto ticket)  //New Ticket Is Generating
         {
             try
             {
-                if (ticket.Picture != null)
-                {
-                    var file = ticket.Picture;
-                    var folderName = Path.Combine("Resource", "Images");
-                    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-                    if (file.Length > 0)
-                    {
-                        var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                        var fullPath = Path.Combine(pathToSave, fileName);
-                        var dbPath = Path.Combine(folderName, fileName);
-
-                        using (var stream = new FileStream(fullPath, FileMode.Create))
-                        {
-                            file.CopyTo(stream);
-                        }
-
-                        ticket.PicturePath = dbPath;
-                    }
-                }
-                else
-                {
-                    ticket.PicturePath = "";
-                }
-
                 var newTicket = _unitOfWork.Ticket.NewTicket(ticket);
                 if (newTicket == false) return BadRequest();
                 return Ok();

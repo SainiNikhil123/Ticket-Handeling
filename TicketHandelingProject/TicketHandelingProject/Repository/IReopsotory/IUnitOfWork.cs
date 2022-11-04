@@ -11,6 +11,7 @@ namespace TicketHandelingProject.Repository.IReopsotory
         IStatusRepository Status { get; }
         IPriorityRepository Priority { get; }
         ICommentRepository Comment { get; }
+        IRoleRepository Role { get; }
 
     }
 }

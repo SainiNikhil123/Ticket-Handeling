@@ -18,31 +18,34 @@ namespace TicketHandelingProject.Repository
 
         public IEnumerable<TicketsDto> AllTickets()
         {
-           // var Tickets = _context.Tickets.Where(x => x.Approved == false).ToList();
+            // var Tickets = _context.Tickets.Where(x => x.Approved == false).ToList();
             var Tickets = (from t in _context.Tickets
-                      join u in _context.AspNetUsers
-                      on t.UserId equals u.Id
-                      from ts in _context.TicketStatuses.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
-                      from tp in _context.TicketPriorities.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
-                      from td in _context.TicketDevelopers.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
-                      from s in _context.StatusNames.Where(x=>x.Id == ts.StatusId).DefaultIfEmpty()
-                      from p in _context.Priorities.Where(x=>x.Id == tp.PriorityId).DefaultIfEmpty()
-                      from d in _context.AspNetUsers.Where(x=>x.Id == td.DeveloperId).DefaultIfEmpty()
-                      select new TicketsDto()
-                      {
-                          Id = t.Id,
-                          Ticket1 = t.Ticket1,
-                          UserId = t.UserId,
-                          User = u.UserName,
-                          StatusId = ts.StatusId != 0 ? ts.StatusId : 0,
-                          Status = ts.StatusId != 0 ? s.Name: null,
-                          PriorityId = tp.PriorityId != 0 ? tp.PriorityId : 0,
-                          Priority = tp.PriorityId != 0 ? p.Name : null,
-                          Approved = t.Approved,
-                          DeveloperId = td.DeveloperId != null ? td.DeveloperId : null,
-                          Developer = td.DeveloperId != null ? d.UserName : null
-                      }).ToList();
-           
+                           join u in _context.AspNetUsers
+                           on t.UserId equals u.Id
+                           from ts in _context.TicketStatuses.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
+                           from tp in _context.TicketPriorities.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
+                           from td in _context.TicketDevelopers.Where(x => x.TicketId == t.Id).DefaultIfEmpty()
+                           from s in _context.StatusNames.Where(x => x.Id == ts.StatusId).DefaultIfEmpty()
+                           from p in _context.Priorities.Where(x => x.Id == tp.PriorityId).DefaultIfEmpty()
+                           from d in _context.AspNetUsers.Where(x => x.Id == td.DeveloperId).DefaultIfEmpty()
+                           select new TicketsDto()
+                           {
+                               Id = t.Id,
+                               Ticket1 = t.Ticket1,
+                               UserId = t.UserId,
+                               User = u.UserName,
+                               StatusId = ts.StatusId != 0 ? ts.StatusId : 0,
+                               Status = ts.StatusId != 0 ? s.Name : null,
+                               PriorityId = tp.PriorityId != 0 ? tp.PriorityId : 0,
+                               Priority = tp.PriorityId != 0 ? p.Name : null,
+                               Approved = t.Approved,
+                               DeveloperId = td.DeveloperId != null ? td.DeveloperId : null,
+                               Developer = td.DeveloperId != null ? d.UserName : null,
+                               PicturePath = t.PicturePath
+                           }).ToList();
+
+            if (Tickets == null) return null;
+
             return Tickets;
         }
 
@@ -206,7 +209,7 @@ namespace TicketHandelingProject.Repository
                 TicketDeveloper ticketDeveloper = new TicketDeveloper()
                 {
                     TicketId = ticketUpdate.Id,
-                    DeveloperId = ticketUpdate.DeveloperId
+                    DeveloperId = ticketUpdate.DeveloperId 
                 };
                 _context.TicketDevelopers.Add(ticketDeveloper);
                 _context.SaveChanges();

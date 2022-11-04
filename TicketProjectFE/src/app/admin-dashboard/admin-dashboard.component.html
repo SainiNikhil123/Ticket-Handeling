@@ -4,8 +4,8 @@
 <div class="row p-1 m-1">
 <div class="col">
     <div>
-        <table class="table table-bordered table-active container">
-            <thead class="text-danger">
+        <table class="table table-bordered table-primary table-active container">
+            <thead class="text-primary table-primary">
                 <tr class="text-center">
                     
                     <th>ID</th>
@@ -14,6 +14,7 @@
                     <th>STATUS</th>
                     <th>Priority</th>
                     <th>APPROVED</th>
+                    <th>Images</th>
                     
                 </tr>
             </thead>
@@ -23,7 +24,7 @@
                     <td>{{user.id}}</td>
                     <td>{{user.ticket1}}</td>  
                     <td  >
-                        <select *ngIf="user.developer == null" class="form-control">
+                        <select (change)="devSelect($event)" *ngIf="user.developer == null" class="form-control">
                             <option value="">Select Developer</option>
                             <option  value="{{Dev.id}}"   *ngFor="let Dev of devList">
                               {{Dev.userName}}
@@ -32,7 +33,7 @@
                           <div *ngIf="user.developer != null">{{user.developer}}</div>
                     </td>
                     <td>
-                        <select *ngIf="user.status == null" class="form-control">
+                        <select (change)="statusSelect($event)" *ngIf="user.status == null" class="form-control">
                             <option value="">Select Status</option>
                             <option  value="{{s.id}}"   *ngFor="let s of statusList">
                               {{s.name}}
@@ -41,7 +42,7 @@
                           <div *ngIf="user.status != null">{{user.status}}</div>
                     </td>
                     <td >
-                        <select *ngIf="user.priority == null" class="form-control">
+                        <select (change)="selectprio($event)" *ngIf="user.priority == null" class="form-control">
                             <option value="">Select Priority</option>
                             <option  value="{{p.id}}"   *ngFor="let p of priorityList">
                               {{p.name}}
@@ -50,8 +51,12 @@
                           <div *ngIf="user.priority != null">{{user.priority}}</div>
                     </td>
                     <td>
-                        <button *ngIf="user.approved == false" (click)="ApproveTicket()" class="btn btn-primary" >Approve</button>
+                        <button *ngIf="user.approved == false" (click)="ApproveTicket(user)" class="btn btn-primary" >Approve</button>
                         <div *ngIf="user.approved == true">✅</div>
+                    </td>
+                    <td>
+                        <img *ngIf="user.picturePath != '' " [src]="createImagePath(user.picturePath)" style="width: 40%; height: 40%;">
+                        <a *ngIf="user.picturePath == '' "> NILL </a>
                     </td>
                                        
                 </tr>

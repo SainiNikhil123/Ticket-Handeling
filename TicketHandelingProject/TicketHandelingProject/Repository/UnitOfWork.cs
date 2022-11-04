@@ -17,6 +17,7 @@ namespace TicketHandelingProject.Repository
             Status = new StatusRepository(_Context);
             Priority = new PriorityRepository(_Context);
             Comment = new CommentRepository(_Context);
+            Role = new RoleRepository(_Context);
         }
 
         public ITicketRepository Ticket { get; private set; }
@@ -26,5 +27,7 @@ namespace TicketHandelingProject.Repository
         public IPriorityRepository Priority { get; private set; }
 
         public ICommentRepository Comment { get; private set; }
+
+        public IRoleRepository Role { get; private set; }
     }
 }

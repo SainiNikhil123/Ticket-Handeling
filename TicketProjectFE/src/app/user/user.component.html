@@ -3,7 +3,7 @@
        <h2 class="text-success text-center"><b>USER LIST</b></h2>
     </div>
     <div  class="col-2">
-        <button type="button" class="btn btn-primary" >New User</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newModal" >New User</button>
      </div>
 </div>
 <div>
@@ -30,3 +30,71 @@
         </tbody>
     </table>
 </div>
+
+<form>
+    <div class="modal" role="dialog" id="newModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div class="modal-title"> New User</div>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="txtName" class="col-sm-4">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newUser.userName" placeholder="User Name" name="name" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="txtAge" class="col-sm-4">Age</label>
+                        <div class="col-sm-8">
+                            <input type="email" [(ngModel)]="newUser.email" placeholder="Your Email" name="email" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="txtEmail" class="col-sm-4">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" [(ngModel)]="newUser.phoneNumber" placeholder="PhoneNumber" name="phonenumber" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="txtEmail" class="col-sm-4">Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" [(ngModel)]="newUser.password" placeholder="Password" name="password" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="txtEmail" class="col-sm-4">Role</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Select Role</option>
+                                <option  value="{{r.name}}"   *ngFor="let r of RoleList">
+                                  {{r.name}}
+                                </option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button (click)="Register()" type="button" class="btn btn-success" data-dismiss="modal">SAVE</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">CANCEL</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

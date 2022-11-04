@@ -12,7 +12,6 @@ namespace TicketHandelingProject.Models.DTO
         public string UserId { get; set; }
         public string User { get; set; }
         public string Ticket1 { get; set; }
-        public IFormFile? Picture { get; set; } 
         public string PicturePath { get; set; } 
         public bool Approved { get; set; }
     }
