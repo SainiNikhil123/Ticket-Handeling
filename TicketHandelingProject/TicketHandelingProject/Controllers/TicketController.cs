@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,14 @@ namespace TicketHandelingProject.Controllers
             _unitOfWork = unitOfWork;
         }
         [HttpGet]
+        [Authorize(Roles =SD.Role_Admin+","+SD.Role_Admin_User)]
         public IActionResult GetTickets() // In This Method All Tickts Will Display For Admin Role
         {
             var tickets = _unitOfWork.Ticket.AllTickets();
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
+        [Authorize(Roles =SD.Role_Admin)]
         [HttpGet("Completed")]
         public IActionResult GetCompletedTickets() // In This Method Completed Tickts Will Display For Admin Role
         {
@@ -35,12 +38,14 @@ namespace TicketHandelingProject.Controllers
             return Ok(tickets);
         }
         [HttpGet("Approved")]
+        [Authorize(Roles =SD.Role_Support)]
         public IActionResult GetApprovedTickets() // In This Method Approved Tickts Will Display For Admin And Dev Support Role
         {
             var tickets = _unitOfWork.Ticket.ApprovedTickets();
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
+        [Authorize(Roles =SD.Role_Dev)]
         [HttpGet("DevTickets")]
         public IActionResult GetTicketsByDevId(string DevId) // In This Method Approved Tickts Will Display For Dev Role
         {
@@ -48,7 +53,15 @@ namespace TicketHandelingProject.Controllers
             if (tickets == null) return BadRequest();
             return Ok(tickets);
         }
-
+        [Authorize(Roles =SD.Role_User)]
+        [HttpGet("UserTickets")]
+        public IActionResult GetTicketsByUserId(string UserId) // In This Method Approved Tickts Will Display For User Role
+        {
+            var tickets = _unitOfWork.Ticket.AllTicketsByUserId(UserId);
+            if (tickets == null) return BadRequest();
+            return Ok(tickets);
+        }
+        [Authorize]
         [HttpPost("Upload"), DisableRequestSizeLimit]
         public IActionResult Upload()
         {
@@ -78,6 +91,7 @@ namespace TicketHandelingProject.Controllers
                 return StatusCode(500, $"Internal server error: {ex}");
             }
         }
+        [Authorize]
         [HttpPost]
         public IActionResult AddTicket([FromBody]TicketDto ticket)  //New Ticket Is Generating
         {
@@ -95,6 +109,7 @@ namespace TicketHandelingProject.Controllers
             
         }
         [HttpPost("Approve")]
+        [Authorize(Roles =SD.Role_Admin)]
         public IActionResult ApproveTicket([FromBody]TicketUpdateDto ticketUpdate)
         {
             var ticketupdated = _unitOfWork.Ticket.ApproveTicket(ticketUpdate);

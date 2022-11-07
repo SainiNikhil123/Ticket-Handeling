@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -80,6 +81,7 @@ namespace TicketHandelingProject.Controllers
 
         }
         [HttpGet]
+        [Authorize(Roles = SD.Role_Admin +","+SD.Role_Admin_User)]
         public IActionResult GetUsers()
         {
             var user = _userRepository.GetUser();

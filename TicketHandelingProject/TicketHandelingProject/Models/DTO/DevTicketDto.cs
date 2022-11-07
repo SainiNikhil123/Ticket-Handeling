@@ -13,5 +13,6 @@ namespace TicketHandelingProject.Models.DTO
         public int StatusId { get; set; }
         public string Status { get; set; }
         public string Ticket1 { get; set; }
+        public string PicturePath { get; set; }
     }
 }

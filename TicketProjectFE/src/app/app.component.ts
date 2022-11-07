@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Roles } from './Models/roles';
 import { Test } from './Models/test';
 import { Ticket } from './Models/ticket';
@@ -19,17 +20,34 @@ export class AppComponent {
   ticket:Ticket = new Ticket()
   selectedFile:any;
   path:Test=new Test();
+  dispAdmin:boolean=false;
+  dispDev:boolean=false;
+  dispSupp:boolean=false;
+  dispUser:boolean=false;
 
   progress: number = 0;
   message: string = "";
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private roleService: RoleService, private ticketService:TicketService, private http: HttpClient) {}
+  constructor(private roleService: RoleService, private ticketService:TicketService, private http: HttpClient,private route:Router) {}
+
+  ngOnInit(): void {
+
+    this.MenuDisplay();
+
+  }
+
+  ngDoCheck():void{
+
+    this.MenuDisplay();
+
+  }
 
   Logout(){
   sessionStorage.removeItem("jwt");
   sessionStorage.removeItem("role");
   sessionStorage.removeItem("Id");
+  this.route.navigateByUrl("");  
   }
 
   getRoles(){
@@ -84,6 +102,25 @@ export class AppComponent {
       error: (err: HttpErrorResponse) => console.log(err)
     });
   }
+
+  isAuthorized():boolean{
+   let token = sessionStorage.getItem("jwt")
+   if(token){
+    return true;
+   }
+   return false;
+  }
+
+  MenuDisplay()
+{
+ let role = sessionStorage.getItem("role")
+
+ this.dispAdmin = (role == "Admin" || role == "Admin User");
+ this.dispUser = (role == "User");
+ this.dispDev = (role == "Dev");
+ this.dispSupp = (role == "Support");
+
+}
 }
 
 

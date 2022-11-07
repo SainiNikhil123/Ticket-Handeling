@@ -10,6 +10,9 @@ import { Status } from '../Models/status';
 import { Priority } from '../Models/priority';
 import { UpdateTicket } from '../Models/update-ticket';
 import { UpperCasePipe } from '@angular/common';
+import { NewComment } from '../Models/new-comment';
+import { Comment } from '../Models/comment';
+import { CommentService } from '../Services/comment.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -25,8 +28,10 @@ export class AdminDashboardComponent implements OnInit {
   statusList:Status[] = [];
   priorityList:Priority[] = [];
   devList:User[] = [];
+  newComments:NewComment = new NewComment();
+  comment:Comment[] = [];
 
-  constructor(private ticketService:TicketService, private userService:UserService, private statusService:StatusService, private priorityService:PriorityService) { }
+  constructor(private ticketService:TicketService,private commentService:CommentService, private userService:UserService, private statusService:StatusService, private priorityService:PriorityService) { }
 
   ngOnInit(): void {
     this.getAllTickets();
@@ -117,5 +122,37 @@ export class AdminDashboardComponent implements OnInit {
 
   createImagePath(serverPath:string){
     return `https://localhost:44393/${serverPath}`;
+  }
+
+  commentClick(e:number)
+  {
+    console.log(e);
+    this.newComments.ticketId = e;   
+    this.commentService.getComment(e).subscribe(
+      (response)=>{
+        this.comment = response;
+        console.log(this.comment);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  AddComment(){
+    let Id = sessionStorage.getItem("Id");
+    if(Id){
+      this.newComments.userId = Id
+      this.commentService.postComment(this.newComments).subscribe(
+        (response)=>{
+          console.log(response);
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )   
+    } else{
+      alert("Login First")
+    }
   }
 }

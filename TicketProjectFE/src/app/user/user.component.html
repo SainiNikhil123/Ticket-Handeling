@@ -36,8 +36,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <div class="modal-header">
-                    <div class="modal-title"> New User</div>
+                <div class="modal-header" style="background-color: rgb(173, 94, 54);" >
+                    <div class="modal-title"><b>New User</b></div>
                     <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
                     </button>
@@ -45,7 +45,7 @@
 
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="txtName" class="col-sm-4">Name</label>
+                        <label for="txtName" class="col-sm-4">User Name</label>
                         <div class="col-sm-8">
                             <input type="text" [(ngModel)]="newUser.userName" placeholder="User Name" name="name" class="form-control" />
                         </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="txtAge" class="col-sm-4">Age</label>
+                        <label for="txtAge" class="col-sm-4">Email</label>
                         <div class="col-sm-8">
                             <input type="email" [(ngModel)]="newUser.email" placeholder="Your Email" name="email" class="form-control" />
                         </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="txtEmail" class="col-sm-4">Email</label>
+                        <label for="txtEmail" class="col-sm-4">Phone Number</label>
                         <div class="col-sm-8">
                             <input type="text" [(ngModel)]="newUser.phoneNumber" placeholder="PhoneNumber" name="phonenumber" class="form-control" />
                         </div>
@@ -79,7 +79,7 @@
                     <div class="form-group row">
                         <label for="txtEmail" class="col-sm-4">Role</label>
                         <div class="col-sm-8">
-                            <select class="form-control">
+                            <select (change)="selectedRole($event)" class="form-control">
                                 <option value="">Select Role</option>
                                 <option  value="{{r.name}}"   *ngFor="let r of RoleList">
                                   {{r.name}}

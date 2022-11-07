@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace TicketHandelingProject.Controllers
             _unitOfWork = unitOfWork;
         }
         [HttpGet]
+        [Authorize]
         public IActionResult GetStatus()
         {
             return Ok(_unitOfWork.Status.GetAll().ToList());

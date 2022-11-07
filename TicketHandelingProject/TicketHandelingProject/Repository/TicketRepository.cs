@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -71,6 +72,29 @@ namespace TicketHandelingProject.Repository
                                Status = s.Name,
                                PriorityId = tp.PriorityId,
                                Priority = p.Name,
+                               PicturePath = t.PicturePath
+                           }).ToList();
+
+            if (Tickets == null) return null;
+
+            return Tickets;
+        }
+
+        public IEnumerable AllTicketsByUserId(string UserId)
+        {
+            var Tickets = (from t in _context.Tickets
+                           join u in _context.AspNetUsers
+                           on t.UserId equals u.Id
+                           from ts in _context.TicketStatuses.Where(x=>x.TicketId == t.Id).DefaultIfEmpty()                                                      
+                           from s in _context.StatusNames.Where(x=>x.Id == ts.StatusId).DefaultIfEmpty()                         
+                           where t.UserId == UserId
+                           select new 
+                           {
+                               Id = t.Id,
+                               Ticket1 = t.Ticket1,
+                               StatusId = ts.StatusId,
+                               Status = s.Name,
+                               PicturePath = t.PicturePath
                            }).ToList();
 
             if (Tickets == null) return null;
@@ -138,7 +162,8 @@ namespace TicketHandelingProject.Repository
                                Priority = p.Name,
                                Approved = t.Approved,
                                DeveloperId = td.DeveloperId,
-                               Developer = d.UserName
+                               Developer = d.UserName,
+                               PicturePath = t.PicturePath
                            });
 
             if (Tickets == null) return null;

@@ -28,4 +28,12 @@ export class TicketService {
   newTicket(tic:Ticket):Observable<any>{
     return this.http.post<any>(this.BaseUrl,tic);
   }
+  ticketByDevId(DevId:string):Observable<any>{
+    return this.http.get<any>(this.BaseUrl+"DevTickets?DevId="+DevId);
+  }
+
+  ticketByUserId(UserId:string):Observable<any>{
+    return this.http.get<any>(this.BaseUrl+"UserTickets?UserId="+UserId);
+  }
+
 }

@@ -90,8 +90,9 @@ namespace TicketHandelingProject.Repository
                 if (chkuser.Succeeded)
                 {
                     await _applicationUserManager.AddToRoleAsync(users, user.Role);
+                    return true;
                 }
-                return true;
+                return false;
             }
             return false;
         }

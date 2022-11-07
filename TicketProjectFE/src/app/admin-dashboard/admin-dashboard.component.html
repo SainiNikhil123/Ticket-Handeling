@@ -15,6 +15,7 @@
                     <th>Priority</th>
                     <th>APPROVED</th>
                     <th>Images</th>
+                    <th>Action</th>
                     
                 </tr>
             </thead>
@@ -55,9 +56,12 @@
                         <div *ngIf="user.approved == true">✅</div>
                     </td>
                     <td>
-                        <img *ngIf="user.picturePath != '' " [src]="createImagePath(user.picturePath)" style="width: 40%; height: 40%;">
+                        <img *ngIf="user.picturePath != '' "  [src]="createImagePath(user.picturePath)" style="width: 40%; height: 40%;">
                         <a *ngIf="user.picturePath == '' "> NILL </a>
                     </td>
+                    <td>
+                      <button data-toggle="modal" data-target="#commentModal" (click)="commentClick(user.id)" class="btn btn-primary p-1 m-1">COMMENTS</button>
+                   </td>
                                        
                 </tr>
             </tbody>
@@ -65,4 +69,51 @@
     </div>
 </div>
 </div>
+
+
+<!-- comment -->
+<form>
+  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel"><b>COMMENTS</b></h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" >
+              <table *ngIf="comment.length != 0" class="table table-bordered table-primary table-active container">
+                  <thead class="text-primary table-primary">
+                      <tr class="text-center">
+                          
+                          <th>Name</th>
+                          <th>Role</th>
+                          <th>Comment</th>
+                          
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr class="text-center" *ngFor="let com of comment">
+                          
+                          <td>{{com.userName}}</td>
+                          <td>{{com.userRole}}</td>  
+                          <td>{{com.comment1}}</td>
+                                             
+                      </tr>
+                  </tbody>
+              </table>
+              
+          </div>
+          <div class="p-2 m-2">
+              <input [(ngModel)]="newComments.comment1" name="comment" type="text" class="form-control" placeholder="Add Comment Here" >
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button (click)="AddComment()" type="button" class="btn btn-primary" data-dismiss="modal">Add Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
 

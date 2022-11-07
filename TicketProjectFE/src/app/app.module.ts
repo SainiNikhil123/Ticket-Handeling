@@ -8,6 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DevDashboardComponent } from './dev-dashboard/dev-dashboard.component';
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { SupportDashboardComponent } from './support-dashboard/support-dashboard.component';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthIntercepterService } from './Auth/auth-intercepter.service';
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -15,15 +24,30 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     LOginComponent,
     RegisterComponent,
     UserComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    DevDashboardComponent,
+    MyDashboardComponent,
+    SupportDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44393"]       
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthIntercepterService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

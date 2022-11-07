@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Roles } from '../Models/roles';
 import { User } from '../Models/user';
@@ -15,7 +16,7 @@ export class UserComponent implements OnInit {
   userList:User[] = [];
   newUser:User = new User();
   RoleList:Roles[] = [];
-  constructor(private userService: UserService,private roleService:RoleService) { }
+  constructor(private userService: UserService,private roleService:RoleService, private route:Router) { }
 
   ngOnInit(): void {
     this.get();
@@ -37,9 +38,9 @@ export class UserComponent implements OnInit {
 
   Register()
   {
+    debugger;
     console.log(this.newUser);
     this.newUser.id = "0";
-    this.newUser.role = "User";
     this.userService.register(this.newUser).subscribe(
       (response)=>{
         console.log(response);
@@ -49,7 +50,8 @@ export class UserComponent implements OnInit {
           title: 'You are Sucessfully Registered',
           showConfirmButton: false,
           timer: 1500
-        })        
+        })
+        this.get();
       },
       (error)=>{
         console.log(error);
@@ -67,5 +69,9 @@ export class UserComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  selectedRole(e:any){
+    this.newUser.role = e.target.value;
   }
 }

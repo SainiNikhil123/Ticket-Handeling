@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace TicketHandelingProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CommentsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -19,6 +21,7 @@ namespace TicketHandelingProject.Controllers
             _unitOfWork = unitOfWork;
         }
         [HttpPost]
+        
         public IActionResult AddComment(CommentDto comment)
         {
             if(comment != null && ModelState.IsValid)

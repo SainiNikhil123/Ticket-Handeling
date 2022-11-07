@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace TicketHandelingProject.Repository.IReopsotory
     public interface ITicketRepository : IRepository<Ticket>
     {
         IEnumerable<TicketsDto> AllTickets();
+        IEnumerable AllTicketsByUserId(string UserId);
         IEnumerable<CompletedTicketDto> AllCompletedTickets();
         Boolean NewTicket(TicketDto ticket);
         Boolean ApproveTicket(TicketUpdateDto ticketUpdate);
