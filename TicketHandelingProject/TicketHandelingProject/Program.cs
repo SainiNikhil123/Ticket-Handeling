@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TicketHandelingProject.Logger;
 
 namespace TicketHandelingProject
 {
@@ -21,6 +22,15 @@ namespace TicketHandelingProject
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+            .ConfigureLogging((context , logging) =>
+            {
+                logging.AddTicketProjectFileLogger(Options =>
+                {
+                    context.Configuration.GetSection("Logging").GetSection("TicketProjectFile").GetSection("options").Bind(Options);
                 });
+            })
+            
+            ;
     }
 }

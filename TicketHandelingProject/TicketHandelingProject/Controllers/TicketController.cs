@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,15 +17,18 @@ namespace TicketHandelingProject.Controllers
     [ApiController]
     public class TicketController : ControllerBase
     {
+        protected readonly ILogger<TicketController> _logger;
         private readonly IUnitOfWork _unitOfWork;
-        public TicketController(IUnitOfWork unitOfWork)
+        public TicketController(IUnitOfWork unitOfWork, ILogger<TicketController> logger)
         {
             _unitOfWork = unitOfWork;
+            _logger = logger;
         }
         [HttpGet]
         [Authorize(Roles =SD.Role_Admin+","+SD.Role_Admin_User)]
         public IActionResult GetTickets() // In This Method All Tickts Will Display For Admin Role
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket", "GET");
             var tickets = _unitOfWork.Ticket.AllTickets();
             if (tickets == null) return BadRequest();
             return Ok(tickets);
@@ -33,6 +37,7 @@ namespace TicketHandelingProject.Controllers
         [HttpGet("Completed")]
         public IActionResult GetCompletedTickets() // In This Method Completed Tickts Will Display For Admin Role
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/Completed", "GET");
             var tickets = _unitOfWork.Ticket.AllCompletedTickets();
             if (tickets == null) return BadRequest();
             return Ok(tickets);
@@ -41,6 +46,7 @@ namespace TicketHandelingProject.Controllers
         [Authorize(Roles =SD.Role_Support)]
         public IActionResult GetApprovedTickets() // In This Method Approved Tickts Will Display For Admin And Dev Support Role
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/Approved", "GET");
             var tickets = _unitOfWork.Ticket.ApprovedTickets();
             if (tickets == null) return BadRequest();
             return Ok(tickets);
@@ -49,6 +55,7 @@ namespace TicketHandelingProject.Controllers
         [HttpGet("DevTickets")]
         public IActionResult GetTicketsByDevId(string DevId) // In This Method Approved Tickts Will Display For Dev Role
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/DevTickets", "GET");
             var tickets = _unitOfWork.Ticket.TicketByDevId(DevId);
             if (tickets == null) return BadRequest();
             return Ok(tickets);
@@ -57,6 +64,7 @@ namespace TicketHandelingProject.Controllers
         [HttpGet("UserTickets")]
         public IActionResult GetTicketsByUserId(string UserId) // In This Method Approved Tickts Will Display For User Role
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/UserTickets", "GET");
             var tickets = _unitOfWork.Ticket.AllTicketsByUserId(UserId);
             if (tickets == null) return BadRequest();
             return Ok(tickets);
@@ -65,6 +73,8 @@ namespace TicketHandelingProject.Controllers
         [HttpPost("Upload"), DisableRequestSizeLimit]
         public IActionResult Upload()
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/Upload", "POST");
+
             try
             {
                 var file = Request.Form.Files[0];
@@ -95,6 +105,7 @@ namespace TicketHandelingProject.Controllers
         [HttpPost]
         public IActionResult AddTicket([FromBody]TicketDto ticket)  //New Ticket Is Generating
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket", "POST");
             try
             {
                 var newTicket = _unitOfWork.Ticket.NewTicket(ticket);
@@ -112,6 +123,7 @@ namespace TicketHandelingProject.Controllers
         [Authorize(Roles =SD.Role_Admin)]
         public IActionResult ApproveTicket([FromBody]TicketUpdateDto ticketUpdate)
         {
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/Approve", "POST");
             var ticketupdated = _unitOfWork.Ticket.ApproveTicket(ticketUpdate);
             if (ticketupdated == false) return BadRequest();
             return Ok();
@@ -119,7 +131,9 @@ namespace TicketHandelingProject.Controllers
         [HttpPost("UpdateStatus")]
         public IActionResult UpdateTicketStatus(StatusUpdDto status)
         {
-            if(status != null && ModelState.IsValid)
+            _logger.LogInformation("Run endpoint {endpoint} {verb}", "/api/Ticket/UpdateStatus", "POST");
+
+            if (status != null && ModelState.IsValid)
             {
                 var statusUpdated = _unitOfWork.Ticket.AddStatus(status.TicketId, status.StatusId);
                 if (statusUpdated == false) return BadRequest();
