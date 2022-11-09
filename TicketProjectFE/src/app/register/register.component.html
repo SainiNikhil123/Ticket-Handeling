@@ -9,33 +9,53 @@
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
   
-                  <form class="mx-1 mx-md-4">
+                  <form [formGroup]="registerForm" class="mx-1 mx-md-4">
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" [(ngModel)]="newUser.userName" placeholder="User Name" name="name" class="form-control" />
+                        <input type="text" [(ngModel)]="newUser.userName" placeholder="User Name" name="name" class="form-control" formControlName="name" />
+                        <div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" class="text-danger">
+                          <div *ngIf="registerForm.controls['name'].errors">
+                            Name is required.
+                          </div>
+                      </div>
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" [(ngModel)]="newUser.email" placeholder="Your Email" name="email" class="form-control" />
+                        <input type="email" [(ngModel)]="newUser.email" placeholder="Your Email" name="email" class="form-control" formControlName="email" />
+                        <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" class="text-danger">
+                          <div *ngIf="registerForm.controls['email'].errors">
+                            Email is required.
+                          </div>
+                      </div>
                       </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="text" [(ngModel)]="newUser.phoneNumber" placeholder="PhoneNumber" name="phonenumber" class="form-control" />
+                          <input type="text" [(ngModel)]="newUser.phoneNumber" placeholder="PhoneNumber" name="phonenumber" class="form-control" formControlName="pNumber" />
+                          <div *ngIf="registerForm.controls['pNumber'].invalid && (registerForm.controls['pNumber'].dirty || registerForm.controls['pNumber'].touched)" class="text-danger">
+                            <div *ngIf="registerForm.controls['pNumber'].errors">
+                              Number is required.
+                            </div>
+                        </div>
                         </div>
                       </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" [(ngModel)]="newUser.password" placeholder="Password" name="password" class="form-control" />
+                        <input type="password" [(ngModel)]="newUser.password" placeholder="Password" name="password" class="form-control" formControlName="pWord" />
+                        <div *ngIf="registerForm.controls['pWord'].invalid && (registerForm.controls['pWord'].dirty || registerForm.controls['pWord'].touched)" class="text-danger">
+                          <div *ngIf="registerForm.controls['pWord'].errors">
+                            Password is required.
+                          </div>
+                      </div>
                       </div>
                     </div>
   

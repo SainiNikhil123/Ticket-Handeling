@@ -33,7 +33,7 @@ namespace TicketHandelingProject.Logger
                 return;
             }
 
-            var fullFilePath = string.Format("{0}/{1}", _ticketProjectFileLoggerProvider.options.FilePath.Replace("{date}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss")));
+            var fullFilePath = string.Format("{0}/{1}",_ticketProjectFileLoggerProvider.Options.FolderPath, _ticketProjectFileLoggerProvider.Options.FilePath.Replace("{date}", DateTime.UtcNow.ToString("yyyyMMdd")));
             var logRecord = string.Format("{0} [{1}] {2} {3}", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss"), logLevel.ToString(), formatter(state, exception), (exception != null ? exception.StackTrace : ""));
 
             using (var streamWriter = new StreamWriter(fullFilePath, true))

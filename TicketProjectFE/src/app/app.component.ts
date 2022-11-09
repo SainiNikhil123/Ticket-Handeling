@@ -1,3 +1,4 @@
+import { empty } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
@@ -69,6 +70,8 @@ export class AppComponent {
     console.log(this.ticket);
     this.ticketService.newTicket(this.ticket).subscribe(
       (response)=>{
+        this.ticket.Ticket1 = "";
+        this.route.navigateByUrl("");
         console.log(response);
       },
       (error)=>{

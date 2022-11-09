@@ -75,7 +75,7 @@ namespace TicketHandelingProject
             });
 
             //JWT Authentication
-            var appsettingsection = Configuration.GetSection("appsetting");
+            
             var key = Encoding.ASCII.GetBytes(Configuration["JWT:Key"]);
 
             services.AddAuthentication(x =>

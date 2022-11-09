@@ -1,6 +1,7 @@
 <div class="p-1 m-1">
        <h2 class="text-primary text-center p-4 m-4"><b>ADMIN DASHBOARD</b></h2>
 </div>
+
 <div class="row p-1 m-1">
 <div class="col">
     <div>
@@ -55,8 +56,15 @@
                         <button *ngIf="user.approved == false" (click)="ApproveTicket(user)" class="btn btn-primary" >Approve</button>
                         <div *ngIf="user.approved == true">✅</div>
                     </td>
-                    <td>
-                        <img *ngIf="user.picturePath != '' "  [src]="createImagePath(user.picturePath)" style="width: 40%; height: 40%;">
+                    <td>   
+                        <div *ngIf="user.picturePath != '' ">
+                          <div>
+                            <img data-toggle="modal" data-target="#picModal" (click)="picPath(user.picturePath)"  [src]="createImagePath(user.picturePath)">
+                          </div>
+                          <div>
+                            <label class="text-danger">Click on Image</label>
+                          </div>
+                        </div>                     
                         <a *ngIf="user.picturePath == '' "> NILL </a>
                     </td>
                     <td>
@@ -110,10 +118,25 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button (click)="AddComment()" type="button" class="btn btn-primary" data-dismiss="modal">Add Comment</button>
+            <button [disabled]="newComments.comment1 == ''" (click)="AddComment()" type="button" class="btn btn-primary" data-dismiss="modal">Add Comment</button>
           </div>
         </div>
       </div>
     </div>
 </form>
 
+<!-- Pic -->
+<form>
+  <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <button type="button" cclass="modal-content close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+        
+          <div class="modal-body" >
+           
+             <img [src]="createImagePath(Pic)" style="width: 1000px; height:800px"/>
+          </div>         
+          </div>    
+</form>

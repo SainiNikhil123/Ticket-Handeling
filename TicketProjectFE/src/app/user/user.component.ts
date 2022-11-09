@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Roles } from '../Models/roles';
@@ -16,6 +17,14 @@ export class UserComponent implements OnInit {
   userList:User[] = [];
   newUser:User = new User();
   RoleList:Roles[] = [];
+  registerForm = new FormGroup({
+    name: new FormControl( '',[ Validators.required]),
+    email: new FormControl( '',[ Validators.required]),
+    pNumber: new FormControl( '',[ Validators.required]),
+    pWord: new FormControl( '',[ Validators.required]),
+    role: new FormControl('',[Validators.required])
+  })
+  
   constructor(private userService: UserService,private roleService:RoleService, private route:Router) { }
 
   ngOnInit(): void {

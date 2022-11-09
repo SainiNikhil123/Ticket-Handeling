@@ -78,7 +78,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button (click)="AddComment()" type="button" class="btn btn-primary" data-dismiss="modal">Add Comment</button>
+              <button [disabled]="newComments.comment1 == ''" (click)="AddComment()" type="button" class="btn btn-primary" data-dismiss="modal">Add Comment</button>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ namespace TicketHandelingProject.Repository
         }
 
         public async Task<Token> Authenticate(Login login)
-        {
+        {   
             var result = await _applicationSignInManager.PasswordSignInAsync(login.UserName, login.Password, false, false);
             if (result.Succeeded)
             {

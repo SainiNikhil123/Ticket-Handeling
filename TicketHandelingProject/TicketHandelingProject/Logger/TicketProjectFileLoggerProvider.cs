@@ -11,14 +11,14 @@ namespace TicketHandelingProject.Logger
     [ProviderAlias("TicketProjectFile")]
     public class TicketProjectFileLoggerProvider : ILoggerProvider
     {
-        public readonly TicketProjectFileLoggerOptions options;
+        public readonly TicketProjectFileLoggerOptions Options;
         public TicketProjectFileLoggerProvider(IOptions<TicketProjectFileLoggerOptions> _options)
         {
-            options = _options.Value;
+            Options = _options.Value;
 
-            if(!Directory.Exists(options.FolderPath))
+            if(!Directory.Exists(Options.FolderPath))
             {
-                Directory.CreateDirectory(options.FolderPath);
+                Directory.CreateDirectory(Options.FolderPath);
             }
         }
 

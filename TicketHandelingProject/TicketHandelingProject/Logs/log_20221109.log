@@ -1,0 +1,640 @@
+2022-11-09 09:30:46 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 09:31:01 [Information] Run endpoint /api/User GET 
+2022-11-09 09:31:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 09:31:10 [Information] Run endpoint /api/User GET 
+2022-11-09 09:32:37 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 09:32:43 [Information] Run endpoint /api/Ticket/UserTickets GET 
+2022-11-09 09:32:48 [Error] An exception occurred while iterating over the results of a query for context type 'TicketHandelingProject.Models.Ticket_Handeling_ProjectContext'.
+System.InvalidOperationException: Nullable object must have a value.
+   at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-11-09 09:33:03 [Error] An unhandled exception has occurred while executing the request.    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TicketHandelingProject.Repository.TicketRepository.AllTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Repository\TicketRepository.cs:line 85
+   at TicketHandelingProject.Controllers.TicketController.GetTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\TicketController.cs:line 68
+   at lambda_method303(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 09:39:27 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 09:39:42 [Information] Run endpoint /api/Ticket/UserTickets GET 
+2022-11-09 09:48:51 [Error] An exception occurred while iterating over the results of a query for context type 'TicketHandelingProject.Models.Ticket_Handeling_ProjectContext'.
+System.InvalidOperationException: Nullable object must have a value.
+   at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-11-09 09:50:32 [Error] An unhandled exception has occurred while executing the request.    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TicketHandelingProject.Repository.TicketRepository.AllTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Repository\TicketRepository.cs:line 85
+   at TicketHandelingProject.Controllers.TicketController.GetTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\TicketController.cs:line 68
+   at lambda_method303(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 09:51:29 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 09:51:33 [Information] Run endpoint /api/Ticket/UserTickets GET 
+2022-11-09 09:51:36 [Error] An exception occurred while iterating over the results of a query for context type 'TicketHandelingProject.Models.Ticket_Handeling_ProjectContext'.
+System.InvalidOperationException: Nullable object must have a value.
+   at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-11-09 09:51:39 [Error] An unhandled exception has occurred while executing the request.    at lambda_method305(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at TicketHandelingProject.Repository.TicketRepository.AllTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Repository\TicketRepository.cs:line 85
+   at TicketHandelingProject.Controllers.TicketController.GetTicketsByUserId(String UserId) in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\TicketController.cs:line 68
+   at lambda_method303(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 09:51:57 [Information] Run endpoint /api/Ticket POST 
+2022-11-09 10:37:08 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 10:37:53 [Information] Run endpoint /api/User GET 
+2022-11-09 10:37:58 [Information] Run endpoint /api/User GET 
+2022-11-09 10:37:58 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 10:45:57 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 10:46:09 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 10:46:13 [Information] Run endpoint /api/User GET 
+2022-11-09 10:46:15 [Information] Run endpoint /api/User GET 
+2022-11-09 10:46:15 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 12:36:52 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 12:36:54 [Information] Run endpoint /api/User GET 
+2022-11-09 13:23:22 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-09 13:23:28 [Information] Run endpoint /api/User GET 
+2022-11-09 13:29:28 [Information] Run endpoint /api/User GET 
+2022-11-09 13:29:39 [Information] Run endpoint /api/User GET 
+2022-11-09 13:29:42 [Information] Run endpoint /api/User GET 
+2022-11-09 13:29:43 [Information] Run endpoint /api/User GET 
+2022-11-09 13:29:50 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:21 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:23 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:25 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:28 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:43 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:47 [Information] Run endpoint /api/User GET 
+2022-11-09 13:30:49 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:09 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:19 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:20 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:22 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:37 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:45 [Information] Run endpoint /api/User GET 
+2022-11-09 13:31:47 [Information] Run endpoint /api/User GET 
+2022-11-09 13:32:36 [Information] Run endpoint /api/User GET 
+2022-11-09 13:33:06 [Information] Run endpoint /api/User GET 
+2022-11-09 13:33:06 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:33:08 [Information] Run endpoint /api/Comments GET 
+2022-11-09 13:33:47 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:33:47 [Information] Run endpoint /api/User GET 
+2022-11-09 13:33:51 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:33:51 [Information] Run endpoint /api/User GET 
+2022-11-09 13:34:02 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:34:02 [Information] Run endpoint /api/User GET 
+2022-11-09 13:34:08 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:34:08 [Information] Run endpoint /api/User GET 
+2022-11-09 13:34:11 [Information] Run endpoint /api/Comments GET 
+2022-11-09 13:34:38 [Information] Run endpoint /api/User GET 
+2022-11-09 13:34:38 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:34:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:34:49 [Information] Run endpoint /api/User GET 
+2022-11-09 13:34:59 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:34:59 [Information] Run endpoint /api/User GET 
+2022-11-09 13:35:29 [Information] Run endpoint /api/Comments GET 
+2022-11-09 13:38:59 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:38:59 [Information] Run endpoint /api/User GET 
+2022-11-09 13:39:04 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:39:04 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:25 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:44:25 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:44:29 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:37 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:44:37 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:42 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:44:42 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:44 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:44:44 [Information] Run endpoint /api/User GET 
+2022-11-09 13:44:47 [Information] Run endpoint /api/User GET 
+2022-11-09 13:46:21 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:46:21 [Information] Run endpoint /api/User GET 
+2022-11-09 13:46:21 [Error] An unhandled exception has occurred while executing the request.    at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at TicketHandelingProject.Controllers.TicketController.GetTickets() in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\TicketController.cs:line 31
+   at lambda_method244(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 13:49:12 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:49:12 [Information] Run endpoint /api/User GET 
+2022-11-09 13:49:18 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:49:18 [Information] Run endpoint /api/User GET 
+2022-11-09 13:49:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:49:35 [Information] Run endpoint /api/User GET 
+2022-11-09 13:49:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:49:49 [Information] Run endpoint /api/User GET 
+2022-11-09 13:49:51 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:49:51 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:00 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:00 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:07 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:23 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:23 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:24 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:24 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:28 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:28 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:30 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:30 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:48 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:48 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:53 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:54 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:58 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:58 [Information] Run endpoint /api/User GET 
+2022-11-09 13:50:59 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:50:59 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:13 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:36 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:36 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:39 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:39 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:48 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:48 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:50 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:50 [Information] Run endpoint /api/User GET 
+2022-11-09 13:51:53 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:51:53 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:01 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:01 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:05 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:13 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:17 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:27 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:27 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:51 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:51 [Information] Run endpoint /api/User GET 
+2022-11-09 13:52:57 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:52:57 [Information] Run endpoint /api/User GET 
+2022-11-09 13:53:18 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:53:19 [Information] Run endpoint /api/User GET 
+2022-11-09 13:53:34 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:53:34 [Information] Run endpoint /api/User GET 
+2022-11-09 13:54:02 [Information] Run endpoint /api/User GET 
+2022-11-09 13:54:02 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:54:14 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:54:14 [Information] Run endpoint /api/User GET 
+2022-11-09 13:55:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:55:17 [Information] Run endpoint /api/User GET 
+2022-11-09 13:55:52 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:55:52 [Information] Run endpoint /api/User GET 
+2022-11-09 13:56:05 [Information] Run endpoint /api/User GET 
+2022-11-09 13:56:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:56:19 [Information] Run endpoint /api/User GET 
+2022-11-09 13:56:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:56:34 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:56:34 [Information] Run endpoint /api/User GET 
+2022-11-09 13:56:43 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:59:57 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 13:59:57 [Information] Run endpoint /api/User GET 
+2022-11-09 13:59:57 [Error] An unhandled exception has occurred while executing the request.    at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at TicketHandelingProject.Controllers.UserController.GetUsers() in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\UserController.cs:line 95
+   at lambda_method186(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 14:00:30 [Information] Run endpoint /api/User GET 
+2022-11-09 14:00:30 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:06 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:06 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:28 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:28 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:36 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:36 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:37 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:37 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:40 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:40 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:42 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:42 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:47 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:47 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:48 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:48 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:51 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:51 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:52 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:52 [Information] Run endpoint /api/User GET 
+2022-11-09 14:01:56 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:01:56 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:00 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:00 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:04 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:04 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:07 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:17 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:22 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:22 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:26 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:26 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:28 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:28 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:30 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:30 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:45 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:45 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:46 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:46 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:47 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:47 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:52 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:52 [Information] Run endpoint /api/User GET 
+2022-11-09 14:02:53 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:02:53 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:07 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:17 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:20 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:20 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:35 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:37 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:37 [Information] Run endpoint /api/User GET 
+2022-11-09 14:03:48 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:03:48 [Information] Run endpoint /api/User GET 
+2022-11-09 14:04:21 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:04:21 [Information] Run endpoint /api/User GET 
+2022-11-09 14:04:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:04:29 [Information] Run endpoint /api/User GET 
+2022-11-09 14:04:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:04:35 [Information] Run endpoint /api/User GET 
+2022-11-09 14:04:40 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:04:40 [Information] Run endpoint /api/User GET 
+2022-11-09 14:05:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:05:07 [Information] Run endpoint /api/User GET 
+2022-11-09 14:05:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:05:13 [Information] Run endpoint /api/User GET 
+2022-11-09 14:05:16 [Information] Run endpoint /api/User GET 
+2022-11-09 14:05:16 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:05:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:05:19 [Information] Run endpoint /api/User GET 
+2022-11-09 14:06:01 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:06:01 [Information] Run endpoint /api/User GET 
+2022-11-09 14:06:20 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:06:20 [Information] Run endpoint /api/User GET 
+2022-11-09 14:06:20 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:06:20 [Information] Run endpoint /api/User GET 
+2022-11-09 14:06:42 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:06:42 [Information] Run endpoint /api/User GET 
+2022-11-09 14:06:43 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:06:43 [Information] Run endpoint /api/User GET 
+2022-11-09 14:07:24 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:07:24 [Information] Run endpoint /api/User GET 
+2022-11-09 14:07:26 [Information] Run endpoint /api/User GET 
+2022-11-09 14:07:26 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:07:50 [Information] Run endpoint /api/User GET 
+2022-11-09 14:07:50 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:08:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:08:29 [Information] Run endpoint /api/User GET 
+2022-11-09 14:10:39 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:10:39 [Information] Run endpoint /api/User GET 
+2022-11-09 14:10:59 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:10:59 [Information] Run endpoint /api/User GET 
+2022-11-09 14:11:03 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:11:03 [Information] Run endpoint /api/User GET 
+2022-11-09 14:11:09 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:11:09 [Information] Run endpoint /api/User GET 
+2022-11-09 14:11:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:11:35 [Information] Run endpoint /api/User GET 
+2022-11-09 14:11:40 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:11:40 [Information] Run endpoint /api/User GET 
+2022-11-09 14:11:57 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:11:57 [Information] Run endpoint /api/User GET 
+2022-11-09 14:12:47 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:12:47 [Information] Run endpoint /api/User GET 
+2022-11-09 14:13:02 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:13:02 [Information] Run endpoint /api/User GET 
+2022-11-09 14:13:04 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:13:04 [Information] Run endpoint /api/User GET 
+2022-11-09 14:13:15 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:13:15 [Information] Run endpoint /api/User GET 
+2022-11-09 14:13:21 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:13:21 [Information] Run endpoint /api/User GET 
+2022-11-09 14:15:13 [Information] Run endpoint /api/User GET 
+2022-11-09 14:15:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:15:15 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:15:15 [Information] Run endpoint /api/User GET 
+2022-11-09 14:15:16 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:15:16 [Information] Run endpoint /api/User GET 
+2022-11-09 14:15:20 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:15:20 [Information] Run endpoint /api/User GET 
+2022-11-09 14:19:47 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:19:47 [Information] Run endpoint /api/User GET 
+2022-11-09 14:19:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:19:49 [Information] Run endpoint /api/User GET 
+2022-11-09 14:19:54 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:19:54 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:08 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:08 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:13 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:36 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:36 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:50 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:50 [Information] Run endpoint /api/User GET 
+2022-11-09 14:20:55 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:20:55 [Information] Run endpoint /api/User GET 
+2022-11-09 14:22:08 [Information] Run endpoint /api/User GET 
+2022-11-09 14:22:08 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:22:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:22:29 [Information] Run endpoint /api/User GET 
+2022-11-09 14:22:55 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:22:55 [Information] Run endpoint /api/User GET 
+2022-11-09 14:22:57 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:22:57 [Information] Run endpoint /api/User GET 
+2022-11-09 14:23:01 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:23:01 [Information] Run endpoint /api/User GET 
+2022-11-09 14:23:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:23:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:23:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:23:07 [Information] Run endpoint /api/User GET 
+2022-11-09 14:23:45 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:23:45 [Information] Run endpoint /api/User GET 
+2022-11-09 14:23:53 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:23:53 [Information] Run endpoint /api/User GET 
+2022-11-09 14:24:03 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:24:04 [Information] Run endpoint /api/User GET 
+2022-11-09 14:24:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:24:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:24:11 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:24:11 [Information] Run endpoint /api/User GET 
+2022-11-09 14:24:16 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:24:16 [Information] Run endpoint /api/User GET 
+2022-11-09 14:24:40 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:24:41 [Information] Run endpoint /api/User GET 
+2022-11-09 14:25:00 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:25:00 [Information] Run endpoint /api/User GET 
+2022-11-09 14:25:15 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:25:24 [Error] An unhandled exception has occurred while executing the request.    at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at TicketHandelingProject.Controllers.UserController.GetUsers() in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\UserController.cs:line 95
+   at lambda_method186(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 14:25:34 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:25:34 [Information] Run endpoint /api/User GET 
+2022-11-09 14:25:41 [Information] Run endpoint /api/User GET 
+2022-11-09 14:25:41 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:25:46 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:25:46 [Information] Run endpoint /api/User GET 
+2022-11-09 14:26:00 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:26:00 [Information] Run endpoint /api/User GET 
+2022-11-09 14:26:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:26:35 [Information] Run endpoint /api/User GET 
+2022-11-09 14:26:43 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:26:43 [Information] Run endpoint /api/User GET 
+2022-11-09 14:26:45 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:26:46 [Information] Run endpoint /api/User GET 
+2022-11-09 14:26:57 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:26:57 [Information] Run endpoint /api/User GET 
+2022-11-09 14:27:09 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:27:09 [Information] Run endpoint /api/User GET 
+2022-11-09 14:27:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:27:19 [Information] Run endpoint /api/User GET 
+2022-11-09 14:27:20 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:27:20 [Information] Run endpoint /api/User GET 
+2022-11-09 14:27:22 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:27:22 [Information] Run endpoint /api/User GET 
+2022-11-09 14:27:27 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:27:27 [Information] Run endpoint /api/User GET 
+2022-11-09 14:28:58 [Information] Run endpoint /api/User GET 
+2022-11-09 14:28:58 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:29:10 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:29:10 [Information] Run endpoint /api/User GET 
+2022-11-09 14:29:14 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:29:14 [Information] Run endpoint /api/User GET 
+2022-11-09 14:29:26 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:29:26 [Information] Run endpoint /api/User GET 
+2022-11-09 14:30:06 [Information] Run endpoint /api/User GET 
+2022-11-09 14:30:06 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:30:56 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:30:56 [Information] Run endpoint /api/User GET 
+2022-11-09 14:30:58 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:30:58 [Information] Run endpoint /api/User GET 
+2022-11-09 14:31:03 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:31:03 [Information] Run endpoint /api/User GET 
+2022-11-09 14:31:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:31:19 [Information] Run endpoint /api/User GET 
+2022-11-09 14:31:22 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:31:22 [Information] Run endpoint /api/User GET 
+2022-11-09 14:31:24 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:31:24 [Information] Run endpoint /api/User GET 
+2022-11-09 14:31:39 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:31:39 [Information] Run endpoint /api/User GET 
+2022-11-09 14:39:46 [Information] Run endpoint /api/User GET 
+2022-11-09 14:39:46 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:43:31 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:43:32 [Information] Run endpoint /api/User GET 
+2022-11-09 14:43:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:43:49 [Information] Run endpoint /api/User GET 
+2022-11-09 14:44:01 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:44:01 [Information] Run endpoint /api/User GET 
+2022-11-09 14:44:10 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:44:10 [Information] Run endpoint /api/User GET 
+2022-11-09 14:46:23 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:46:23 [Information] Run endpoint /api/User GET 
+2022-11-09 14:46:43 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:46:43 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:08 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:08 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:12 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:12 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:15 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:15 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:17 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:22 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:22 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:24 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:24 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:29 [Information] Run endpoint /api/User GET 
+2022-11-09 14:51:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:51:49 [Information] Run endpoint /api/User GET 
+2022-11-09 14:52:11 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:52:11 [Information] Run endpoint /api/User GET 
+2022-11-09 14:52:13 [Information] Run endpoint /api/User GET 
+2022-11-09 14:52:13 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:52:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:52:49 [Information] Run endpoint /api/User GET 
+2022-11-09 14:52:49 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:52:49 [Error] An unhandled exception has occurred while executing the request.    at Microsoft.Extensions.Logging.Logger.ThrowLoggingError(List`1 exceptions)
+   at Microsoft.Extensions.Logging.Logger.Log[TState](LogLevel logLevel, EventId eventId, TState state, Exception exception, Func`3 formatter)
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at TicketHandelingProject.Controllers.UserController.GetUsers() in E:\Ticket Handeling\TicketHandelingProject\TicketHandelingProject\Controllers\UserController.cs:line 95
+   at lambda_method186(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-09 14:54:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:54:14 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:14 [Information] Run endpoint /api/User GET 
+2022-11-09 14:54:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:19 [Information] Run endpoint /api/User GET 
+2022-11-09 14:54:39 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:39 [Information] Run endpoint /api/User GET 
+2022-11-09 14:54:43 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:43 [Information] Run endpoint /api/User GET 
+2022-11-09 14:54:58 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:54:58 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:02 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:02 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:08 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:08 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:12 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:12 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:17 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:17 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:19 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:19 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:25 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:25 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:32 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:32 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:33 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:33 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:54 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:54 [Information] Run endpoint /api/User GET 
+2022-11-09 14:55:55 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:55:55 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:05 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:56:05 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:27 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:56:27 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:29 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:56:29 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:32 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:56:32 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:33 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 14:56:33 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:35 [Information] Run endpoint /api/User GET 
+2022-11-09 14:56:35 [Information] Run endpoint /api/Ticket GET 
+2022-11-09 15:01:36 [Information] Run endpoint /api/Comments GET 

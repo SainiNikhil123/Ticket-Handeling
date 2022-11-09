@@ -30,6 +30,7 @@ export class AdminDashboardComponent implements OnInit {
   devList:User[] = [];
   newComments:NewComment = new NewComment();
   comment:Comment[] = [];
+  Pic:string="";
 
   constructor(private ticketService:TicketService,private commentService:CommentService, private userService:UserService, private statusService:StatusService, private priorityService:PriorityService) { }
 
@@ -38,6 +39,7 @@ export class AdminDashboardComponent implements OnInit {
     this.getDev();
     this.getStatuses();
     this.getpriority();
+    
   }
 
   getAllTickets()
@@ -154,5 +156,8 @@ export class AdminDashboardComponent implements OnInit {
     } else{
       alert("Login First")
     }
+  }
+  picPath(e:any){
+    this.Pic = e; 
   }
 }
