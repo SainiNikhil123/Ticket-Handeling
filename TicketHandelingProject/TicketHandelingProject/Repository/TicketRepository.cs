@@ -20,6 +20,8 @@ namespace TicketHandelingProject.Repository
         public IEnumerable<TicketsDto> AllTickets()
         {
             // var Tickets = _context.Tickets.Where(x => x.Approved == false).ToList();
+            var sss = _context.Tickets.Where(x => x.Approved == false).Select(x => x.UserId).ToList();
+            var sssh = _context.Tickets.ToList().Count();
             var Tickets = (from t in _context.Tickets
                            join u in _context.AspNetUsers
                            on t.UserId equals u.Id

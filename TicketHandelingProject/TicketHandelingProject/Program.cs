@@ -29,7 +29,9 @@ namespace TicketHandelingProject
                 logging.AddTicketProjectFileLogger(Options =>
                 {
                     context.Configuration.GetSection("Logging").GetSection("TicketProjectFile").GetSection("options").Bind(Options);
+                   
                 });
+               
             })
             
             ;

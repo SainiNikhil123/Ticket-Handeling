@@ -83,6 +83,7 @@ namespace TicketHandelingProject.Controllers
             {
                 var user = await _userRepository.Authenticate(login);
                 if (user == null) return BadRequest();
+               
                 return Ok(user);
             }
             return BadRequest();

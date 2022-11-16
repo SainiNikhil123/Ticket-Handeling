@@ -1,8 +1,10 @@
 ﻿using Doc_Patient_Project.Models.DTO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -16,17 +18,18 @@ namespace TicketHandelingProject.Repository
 {
     public class UserRepository : IUserRepository
     {
-        
+        protected readonly ILogger<UserRepository> _logger;
         private readonly ApplicationUserManager _applicationUserManager;
         private readonly ApplicationSignInManager _applicationSignInManager;
         private readonly IConfiguration _iconfiguration;
         private readonly ApplicationDbContext _context;
-        public UserRepository(ApplicationDbContext context, ApplicationUserManager applicationUserManager, ApplicationSignInManager applicationSignInManager, IConfiguration iconfiguration)
+        public UserRepository(ApplicationDbContext context, ApplicationUserManager applicationUserManager, ApplicationSignInManager applicationSignInManager, IConfiguration iconfiguration, [NotNull] ILogger<UserRepository> logger)
         {
             _applicationUserManager = applicationUserManager;
             _applicationSignInManager = applicationSignInManager;
             _iconfiguration = iconfiguration;
             _context = context;
+            _logger = logger;
         }
 
         public async Task<Token> Authenticate(Login login)
@@ -69,7 +72,7 @@ namespace TicketHandelingProject.Repository
                 {
                     token = tokenHandler.WriteToken(token),
                 };
-
+                _logger.LogTrace("login UserName {name}", login.UserName);
                 return ValidToken;
             }
             else
@@ -86,7 +89,7 @@ namespace TicketHandelingProject.Repository
                 users.PhoneNumber = user.PhoneNumber;
                 var userpassword = user.Password;
                 var chkuser = await _applicationUserManager.CreateAsync(users, userpassword);
-
+                _logger.LogTrace("saving  {id}", user.Id);
                 if (chkuser.Succeeded)
                 {
                     await _applicationUserManager.AddToRoleAsync(users, user.Role);
@@ -120,6 +123,7 @@ namespace TicketHandelingProject.Repository
                             }).ToList();
 
             var adminUser = UserList.Where(x => x.Role == "Admin").FirstOrDefault();
+            
             UserList.Remove(adminUser);
 
             return (UserList);

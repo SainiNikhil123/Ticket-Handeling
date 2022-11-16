@@ -1,0 +1,6 @@
+2022-11-11 14:45:44 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-11 14:46:48 [Trace] login UserName Admin 
+2022-11-11 14:56:35 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-11 14:56:58 [Trace] login UserName Admin 
+2022-11-11 14:59:08 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-11 14:59:24 [Trace] login UserName Admin 
