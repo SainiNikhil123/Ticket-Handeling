@@ -60,7 +60,7 @@
             <textarea [(ngModel)]="ticket.Ticket1" name="ticket" class="form-control"></textarea>
             <div class="p-1 m-1  row">
               <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
-              <button [disabled]="isAuthorized()==false" type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+              <button [disabled]="isAuthorized()==false || ticket.Ticket1=='' " type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
               <div>
                 <span class="upload" *ngIf="message">
                   {{message}}
@@ -74,7 +74,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button [disabled]="isAuthorized()==false" type="button" (click)="addTicket()" class="btn btn-primary">Submit</button>
+        <button [disabled]="isAuthorized()==false || ticket.Ticket1 == '' " type="button" (click)="addTicket()" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>

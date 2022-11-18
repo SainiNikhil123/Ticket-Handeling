@@ -1,0 +1,5 @@
+2022-11-18 06:13:38 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-18 06:13:50 [Information] Run endpoint /api/User/Authenticate POST 
+2022-11-18 06:13:51 [Trace] login UserName Admin 
+2022-11-18 06:14:07 [Information] Run endpoint /api/Ticket GET 
+2022-11-18 06:14:07 [Information] Run endpoint /api/User GET 
